@@ -1,8 +1,14 @@
 #pragma once
 
+#ifndef ZOOKEEPERUTIL_H
+#define ZOOKEEPERUTIL_H
+
+// ------------------ 关键修改 ------------------
+#define THREADED  // 强制取消定义 THREADED，确保同步函数声明可见
+
 #include <semaphore.h>
 #include <zookeeper/zookeeper.h>
-#include <string>
+#include <string> 
 
 // 封装的zk客户端类
 class ZkClient
@@ -20,3 +26,5 @@ private:
     // zk的客户端句柄
     zhandle_t *m_zhandle;
 };
+
+#endif
